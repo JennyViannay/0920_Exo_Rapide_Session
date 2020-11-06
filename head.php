@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,11 @@
 <body>
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="/">SESSION</a>
-  <a class="navbar-brand" href="login.php">login</a>
-  <a class="navbar-brand" href="logout.php">logout</a>
+
+  <?php if(isset($_SESSION['name'])) { ?>
+    <a class="navbar-brand" href="logout.php">logout</a>
+  <?php } else { ?>
+    <a class="navbar-brand" href="login.php">login</a>
+
+  <?php } ?>
 </nav>
